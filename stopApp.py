@@ -18,3 +18,5 @@ for i in range(0,len(data['Predictions'])):
         print("The next {} arrives in {} minutes\n".format(data['Predictions'][i]['RouteID'], data['Predictions'][i]['Minutes']))
 
 # print(data['Predictions']) #full list of details I can comb from
+
+### TODO: TURN INTO FUNCTION, THEN TURN INTO FLASK APP

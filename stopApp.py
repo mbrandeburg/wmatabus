@@ -55,6 +55,7 @@ def webFramesUnique():
 
 if __name__ == "__main__":
     # gunicorn -w 4 -b 0.0.0.0:8000 stopApp:app --timeout 500
+    # procfile: https://stackoverflow.com/questions/38851564/heroku-gunicorn-procfile
     app.run(host='0.0.0.0', port=8000) 
 
 

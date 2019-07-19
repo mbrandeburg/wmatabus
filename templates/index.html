@@ -8,10 +8,19 @@
 </head>
 {% endblock %}
 
-<br>
+<nav class="navbar-expand-lg navbar-light" style="background-color: lightslategray;"">
+    <div class="container">
+      <h1 align="center" style=color:white>DC Bus times</h1>
+    </div>
+  </nav>
+<p></p>
 <h1>For {{location1}}:</h1>
-<h1>{{bus1}} is arriving in {{time1}} minutes</h1>
-<h2>{{bus2}} is arriving in {{time2}} minutes</h2>
-<!-- {{data | safe}} -->
+<div class="jumbotron">
+    <div class="container">
+    <h1>{{bus1}} is arriving in {{time1}} minutes</h1>
+    <h2>{{bus2}} is arriving in {{time2}} minutes</h2>
+    </div>
+</div>
 
+<!-- {{data | safe}} -->
 {% endblock %}

@@ -38,21 +38,23 @@ df['Bus'] = busList[1]
 df['Time'] = busList[2]
 print(df)
 
-### TODO: 1) BOOTSTRAP JUMBOTRONS, 2) INTEGRAT GUNICORN, 3) DEPLOY TO HEROKU
+### TODO: 1) DEPLOY TO HEROKU
 
 location1 = busList[0][0]
 bus1 = busList[1][0]
 bus2 = busList[1][1]
+bus3 = busList[1][2]
 time1 = busList[2][0]
 time2 = busList[2][1]
+time3 = busList[2][2]
 
 ## FLASK RENDER THE WEBPAGE:
 @app.route("/")
 def webFramesUnique():
-    return render_template('index.html', data=df.to_html(), location1=location1, bus1=bus1, bus2=bus2, time1=time1, time2=time2)
+    return render_template('index.html', data=df.to_html(), location1=location1, bus1=bus1, bus2=bus2, time1=time1, time2=time2, bus3=bus3, time3=time3)
 
 if __name__ == "__main__":
-    # app.run(debug = True)
+    # gunicorn -w 4 -b 0.0.0.0:8000 stopApp:app --timeout 500
     app.run(host='0.0.0.0', port=8000) 
 
 

@@ -1,0 +1,17 @@
+{% extends "bootstrap/base.html" %}
+{% block content %}
+{% block styles %}
+  {{super()}}
+<head>
+    <title>DC Bus Times</title>
+    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+</head>
+{% endblock %}
+
+<br>
+<h1>For {{location1}}:</h1>
+<h1>{{bus1}} is arriving in {{time1}} minutes</h1>
+<h2>{{bus2}} is arriving in {{time2}} minutes</h2>
+<!-- {{data | safe}} -->
+
+{% endblock %}

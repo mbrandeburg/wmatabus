@@ -36,9 +36,7 @@ busList = busStop(stopID)
 df = pd.DataFrame(busList[0], columns=['Stop'])
 df['Bus'] = busList[1]
 df['Time'] = busList[2]
-print(df)
-
-### TODO: 1) DEPLOY TO HEROKU
+# print(df)
 
 location1 = busList[0][0]
 bus1 = busList[1][0]

@@ -63,11 +63,6 @@ time2x2 = busList2[2][1]
 time2x3 = busList2[2][2]
 
 ## FLASK RENDER THE WEBPAGE:
-# @app.route('/favicon.ico')
-# def favicon():
-#     return send_from_directory(os.path.join(app.root_path, 'static'),
-#                           'favicon.ico',mimetype='image/vnd.microsoft.icon')
-
 ## main webpage
 @app.route("/")
 def webFramesUnique():
@@ -78,6 +73,11 @@ def webFramesUnique():
 def webFramesUnique2():
     return render_template('index2.html', location1=location2x1, bus1=bus2x1, bus2=bus2x2, time1=time2x1, time2=time2x2, bus3=bus2x3, time3=time2x3, location2=location2)
 
+## favicon
+@app.route('/favicon.ico')
+def favicon():
+    return send_from_directory(os.path.join(app.root_path, 'static'),
+                          'favicon.ico',mimetype='image/vnd.microsoft.icon')
 
 ### INITAITE IT VIA FLASK
 if __name__ == "__main__":

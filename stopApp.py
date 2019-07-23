@@ -57,17 +57,26 @@ time3 = busList[2][2]
 location2 = busList2[0][0]
 
 ## FLASK RENDER THE WEBPAGE:
-@app.route("/")
-def webFramesUnique():
-    return render_template('index.html', location1=location1, bus1=bus1, bus2=bus2, time1=time1, time2=time2, bus3=bus3, time3=time3, location2=location2)
-
 @app.route('/favicon.ico')
 def favicon():
     return send_from_directory(os.path.join(app.root_path, 'static'),
                           'favicon.ico',mimetype='image/vnd.microsoft.icon')
 
+## main webpage
+@app.route("/")
+def webFramesUnique():
+    return render_template('index.html', location1=location1, bus1=bus1, bus2=bus2, time1=time1, time2=time2, bus3=bus3, time3=time3, location2=location2)
+
+## alternate route webpage
+@app.route("/route2")
+def webFramesUnique():
+    return render_template('index.html', location1=location1, bus1=bus1, bus2=bus2, time1=time1, time2=time2, bus3=bus3, time3=time3, location2=location2)
+
+
+### INITAITE IT VIA FLASK
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=8000) 
+    # app.run(host='0.0.0.0', port=8000) 
+    app.run()
     # gunicorn -w 4 -b 0.0.0.0:8000 stopApp:app --timeout 500
     
 

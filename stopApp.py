@@ -7,7 +7,7 @@ app = Flask(__name__)
 Bootstrap(app)
 key = os.environ['wmataKey']
 
-##Stops: 1002872 for 16&Irving, 1002042 for 7-11, 1001183 for Faraguet
+## Stops: 1002872 for 16&Irving, 1002042 for 7-11, 1001183 for Faraguet
 stopID = 1002872 
 stopID2 = 1001183
 

@@ -5,16 +5,19 @@ from flask import Flask, render_template, request, send_from_directory
 from flask_bootstrap import Bootstrap
 app = Flask(__name__)
 Bootstrap(app)
-
 key = os.environ['wmataKey']
-# print(key)
 
-stopID = 1002872 #Stops: 1002872 for 16&Irving, 1002042 for 7-11, 1001183 for Faraguet
-URL = "https://api.wmata.com/NextBusService.svc/json/jPredictions?StopID={}".format(stopID)
-HEADER = {'api_key': key} #dictionary with my api auth parameters (it wants my api token)
+##Stops: 1002872 for 16&Irving, 1002042 for 7-11, 1001183 for Faraguet
+stopID = 1002872 
+stopID2 = 1001183
 
-
-def busStop(stopID): # we can make stopID automatically populate by time of day?
+## Bustop function
+# TODO: can we make stopID automatically populate by time of day?
+def busStop(stopNum): 
+    ## Engage the API
+    URL = "https://api.wmata.com/NextBusService.svc/json/jPredictions?StopID={}".format(stopNum)
+    HEADER = {'api_key': key} #dictionary with my api auth parameters (it wants my api token)
+    ## work with API data
     r = requests.get(url=URL, params= HEADER)
     data = r.json()
     stopNameList = []
@@ -32,10 +35,15 @@ def busStop(stopID): # we can make stopID automatically populate by time of day?
 # print(busStop(stopID))
 
 busList = busStop(stopID)
+busList2 = busStop(stopID2)
 
-df = pd.DataFrame(busList[0], columns=['Stop'])
-df['Bus'] = busList[1]
-df['Time'] = busList[2]
+# df = pd.DataFrame(busList[0], columns=['Stop'])
+# df['Bus'] = busList[1]
+# df['Time'] = busList[2]
+
+# df2 = pd.DataFrame(busList2[0], columns=['Stop'])
+# df['Bus'] = busList2[1]
+# df['Time'] = busList2[2]
 # print(df)
 
 location1 = busList[0][0]
@@ -46,15 +54,27 @@ time1 = busList[2][0]
 time2 = busList[2][1]
 time3 = busList[2][2]
 
+location2 = busList2[0][0]
+
 ## FLASK RENDER THE WEBPAGE:
 @app.route("/")
 def webFramesUnique():
-    return render_template('index.html', data=df.to_html(), location1=location1, bus1=bus1, bus2=bus2, time1=time1, time2=time2, bus3=bus3, time3=time3)
+    return render_template('index.html', location1=location1, bus1=bus1, bus2=bus2, time1=time1, time2=time2, bus3=bus3, time3=time3, location2=location2)
+
+@app.route('/favicon.ico')
+def favicon():
+    return send_from_directory(os.path.join(app.root_path, 'static'),
+                          'favicon.ico',mimetype='image/vnd.microsoft.icon')
 
 if __name__ == "__main__":
-    # gunicorn -w 4 -b 0.0.0.0:8000 stopApp:app --timeout 500
-    # procfile: https://stackoverflow.com/questions/38851564/heroku-gunicorn-procfile
     app.run(host='0.0.0.0', port=8000) 
+    # gunicorn -w 4 -b 0.0.0.0:8000 stopApp:app --timeout 500
+    
+
+
+
+
+
 
 
 ## WORKING WITH THE API:

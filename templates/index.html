@@ -9,22 +9,24 @@
 {% endblock %}
 
 <nav class="navbar-expand-lg navbar-light" style="background-color: lightslategray;">
-      <h1 align="center" style=color:white>DC Bus times</h1>
-  </nav>
+      <h1 align="left" style=color:white>DC Bus times</h1>
+  <!-- nav links -->
+  <a class="nav-link active" href="#">{{location1}}</a>
+  <a class="nav-link" href="#">{{location2}}</a>
+</nav>
+
+<!-- main body -->
 <p></p>
 <h1>For {{location1}}:</h1>
 <div class="jumbotron">
-    <div class="container">
-    <h1>{{bus1}} is arriving in {{time1}} minutes</h1>
-    <h2>{{bus2}} is arriving in {{time2}} minutes</h2>
-    <h2>{{bus3}} is arriving in {{time3}} minutes</h2>
+    <div class="container" style=align:left>
+    <h1 align='left'>{{bus1}} is arriving in {{time1}} minutes</h1>
+    <h2 align='left'>{{bus2}} is arriving in {{time2}} minutes</h2>
+    <h2 align='left'>{{bus3}} is arriving in {{time3}} minutes</h2>
     </div>
 </div>
 
 
-
-
-<!-- {{data | safe}} -->
 <br>
-<p class=page-footer>©Brandebot 2019</p>
+<p class=footer style=color:#377ba8>©Brandebot 2019</p>
 {% endblock %}

@@ -63,10 +63,10 @@ time2x2 = busList2[2][1]
 time2x3 = busList2[2][2]
 
 ## FLASK RENDER THE WEBPAGE:
-@app.route('/favicon.ico')
-def favicon():
-    return send_from_directory(os.path.join(app.root_path, 'static'),
-                          'favicon.ico',mimetype='image/vnd.microsoft.icon')
+# @app.route('/favicon.ico')
+# def favicon():
+#     return send_from_directory(os.path.join(app.root_path, 'static'),
+#                           'favicon.ico',mimetype='image/vnd.microsoft.icon')
 
 ## main webpage
 @app.route("/")

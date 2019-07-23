@@ -37,15 +37,7 @@ def busStop(stopNum):
 busList = busStop(stopID)
 busList2 = busStop(stopID2)
 
-# df = pd.DataFrame(busList[0], columns=['Stop'])
-# df['Bus'] = busList[1]
-# df['Time'] = busList[2]
-
-# df2 = pd.DataFrame(busList2[0], columns=['Stop'])
-# df['Bus'] = busList2[1]
-# df['Time'] = busList2[2]
-# print(df)
-
+# pull out results for webpage variables
 location1 = busList[0][0]
 bus1 = busList[1][0]
 bus2 = busList[1][1]
@@ -71,7 +63,7 @@ def webFramesUnique():
 ## alternate route webpage
 @app.route("/route2")
 def webFramesUnique2():
-    return render_template('index2.html', location1=location2x1, bus1=bus2x1, bus2=bus2x2, time1=time2x1, time2=time2x2, bus3=bus2x3, time3=time2x3, location2=location2)
+    return render_template('index2.html', location1=location1, bus1=bus2x1, bus2=bus2x2, time1=time2x1, time2=time2x2, bus3=bus2x3, time3=time2x3, location2=location2)
 
 ## favicon
 @app.route('/favicon.ico')

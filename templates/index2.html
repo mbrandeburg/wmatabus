@@ -1,0 +1,31 @@
+{% extends "bootstrap/base.html" %}
+{% block content %}
+{% block styles %}
+  {{super()}}
+<head>
+    <title>DC Bus Times</title>
+    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+</head>
+{% endblock %}
+
+<nav class="navbar-expand-lg navbar-light" style="background-color: lightslategray;">
+  <div class="navbar-nav">
+    <a class="navbar-brand" style=color:white>DC Bus times</a>
+    <a class="nav-item nav-link active" href="/">{{location1}} </a>
+    <a class="nav-item nav-link" href="/route2">{{location2}} <span class="sr-only">(current)</span></a>
+  </div>
+</nav>
+
+<!-- main body -->
+<p></p>
+<h1>For {{location2}}:</h1>
+<div class="jumbotron">
+    <h1>{{bus1}} is arriving in {{time1}} minutes</h1>
+    <h2>{{bus2}} is arriving in {{time2}} minutes</h2>
+    <h2>{{bus3}} is arriving in {{time3}} minutes</h2>
+</div>
+
+
+<br>
+<p class=footer style=color:#377ba8>©Brandebot 2019</p>
+{% endblock %}

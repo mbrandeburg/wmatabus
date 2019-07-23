@@ -55,6 +55,12 @@ time2 = busList[2][1]
 time3 = busList[2][2]
 
 location2 = busList2[0][0]
+bus2x1 = busList2[1][0]
+bus2x2 = busList2[1][1]
+bus2x3 = busList2[1][2]
+time2x1 = busList2[2][0]
+time2x2 = busList2[2][1]
+time2x3 = busList2[2][2]
 
 ## FLASK RENDER THE WEBPAGE:
 @app.route('/favicon.ico')
@@ -70,7 +76,7 @@ def webFramesUnique():
 ## alternate route webpage
 @app.route("/route2")
 def webFramesUnique2():
-    return render_template('index.html', location1=location1, bus1=bus1, bus2=bus2, time1=time1, time2=time2, bus3=bus3, time3=time3, location2=location2)
+    return render_template('index2.html', location1=location2x1, bus1=bus2x1, bus2=bus2x2, time1=time2x1, time2=time2x2, bus3=bus2x3, time3=time2x3, location2=location2)
 
 
 ### INITAITE IT VIA FLASK

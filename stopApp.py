@@ -69,7 +69,7 @@ def webFramesUnique():
 
 ## alternate route webpage
 @app.route("/route2")
-def webFramesUnique():
+def webFramesUnique2():
     return render_template('index.html', location1=location1, bus1=bus1, bus2=bus2, time1=time1, time2=time2, bus3=bus3, time3=time3, location2=location2)
 
 

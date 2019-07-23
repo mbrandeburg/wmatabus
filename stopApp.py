@@ -49,73 +49,88 @@ busList = busStop(stopID, "1")
 busList2 = busStop(stopID2, "0")
 
 ### pull out results for webpage variables
-## in case there are fewer than 3 buses coming past a given stop (i.e. late and end of service)
-# southbound
-if len(busList[0]) >= 3:
-    location1 = busList[0][0]
-    bus1 = busList[1][0]
-    bus2 = busList[1][1]
-    bus3 = busList[1][2]
-    time1 = busList[2][0]
-    time2 = busList[2][1]
-    time3 = busList[2][2]
-elif len(busList[0]) == 2:
-    location1 = busList[0][0]
-    bus1 = busList[1][0]
-    bus2 = busList[1][1]
-    bus3 = "No more in service"
-    time1 = busList[2][0]
-    time2 = busList[2][1]
-    time3 = "N/A"
-elif len(busList[0]) == 1:
-    location1 = busList[0][0]
-    bus1 = busList[1][0]
-    bus2 = "No more in service"
-    bus3 = "No more in service"
-    time1 = busList[2][0]
-    time2 = "N/A"
-    time3 = "N/A"
-elif len(busList[0]) == 0:
-    location1 = "No more in service"
-    bus1 = "No more in service"
-    bus2 = "No more in service"
-    bus3 = "No more in service"
-    time1 = "N/A"
-    time2 = "N/A"
-    time3 = "N/A"
-# northbound
-if len(busList2[0]) >= 3:
-    location2 = busList2[0][0]
-    bus2x1 = busList2[1][0]
-    bus2x2 = busList2[1][1]
-    bus2x3 = busList2[1][2]
-    time2x1 = busList2[2][0]
-    time2x2 = busList2[2][1]
-    time2x3 = busList2[2][2]
-elif len(busList2[0]) == 2:
-    location2 = busList2[0][0]
-    bus2x1 = busList2[1][0]
-    bus2x2 = busList2[1][1]
-    bus2x3 = "No more in service"
-    time2x1 = busList2[2][0]
-    time2x2 = busList2[2][1]
-    time2x3 = "N/A"
-elif len(busList2[0]) == 1:
-    location2 = busList2[0][0]
-    bus2x1 = busList2[1][0]
-    bus2x2 = "No more in service"
-    bus2x3 = "No more in service"
-    time2x1 = busList2[2][0]
-    time2x2 = "N/A"
-    time2x3 = "N/A"
-elif len(busList2[0]) == 0:
-    location2 = "No more in service"
-    bus2x1 = "No more in service"
-    bus2x2 = "No more in service"
-    bus2x3 = "No more in service"
-    time2x1 = "N/A"
-    time2x2 = "N/A"
-    time2x3 = "N/A"
+location1 = busList[0][0]
+bus1 = busList[1][0]
+bus2 = busList[1][1]
+bus3 = busList[1][2]
+time1 = busList[2][0]
+time2 = busList[2][1]
+time3 = busList[2][2]
+
+location2 = busList2[0][0]
+bus2x1 = busList2[1][0]
+bus2x2 = busList2[1][1]
+bus2x3 = busList2[1][2]
+time2x1 = busList2[2][0]
+time2x2 = busList2[2][1]
+time2x3 = busList2[2][2]
+# ## in case there are fewer than 3 buses coming past a given stop (i.e. late and end of service)
+# # southbound
+# if len(busList[0]) >= 3:
+#     location1 = busList[0][0]
+#     bus1 = busList[1][0]
+#     bus2 = busList[1][1]
+#     bus3 = busList[1][2]
+#     time1 = busList[2][0]
+#     time2 = busList[2][1]
+#     time3 = busList[2][2]
+# elif len(busList[0]) == 2:
+#     location1 = busList[0][0]
+#     bus1 = busList[1][0]
+#     bus2 = busList[1][1]
+#     bus3 = "No more in service"
+#     time1 = busList[2][0]
+#     time2 = busList[2][1]
+#     time3 = "N/A"
+# elif len(busList[0]) == 1:
+#     location1 = busList[0][0]
+#     bus1 = busList[1][0]
+#     bus2 = "No more in service"
+#     bus3 = "No more in service"
+#     time1 = busList[2][0]
+#     time2 = "N/A"
+#     time3 = "N/A"
+# elif len(busList[0]) == 0:
+#     location1 = "No more in service"
+#     bus1 = "No more in service"
+#     bus2 = "No more in service"
+#     bus3 = "No more in service"
+#     time1 = "N/A"
+#     time2 = "N/A"
+#     time3 = "N/A"
+# # northbound
+# if len(busList2[0]) >= 3:
+#     location2 = busList2[0][0]
+#     bus2x1 = busList2[1][0]
+#     bus2x2 = busList2[1][1]
+#     bus2x3 = busList2[1][2]
+#     time2x1 = busList2[2][0]
+#     time2x2 = busList2[2][1]
+#     time2x3 = busList2[2][2]
+# elif len(busList2[0]) == 2:
+#     location2 = busList2[0][0]
+#     bus2x1 = busList2[1][0]
+#     bus2x2 = busList2[1][1]
+#     bus2x3 = "No more in service"
+#     time2x1 = busList2[2][0]
+#     time2x2 = busList2[2][1]
+#     time2x3 = "N/A"
+# elif len(busList2[0]) == 1:
+#     location2 = busList2[0][0]
+#     bus2x1 = busList2[1][0]
+#     bus2x2 = "No more in service"
+#     bus2x3 = "No more in service"
+#     time2x1 = busList2[2][0]
+#     time2x2 = "N/A"
+#     time2x3 = "N/A"
+# elif len(busList2[0]) == 0:
+#     location2 = "No more in service"
+#     bus2x1 = "No more in service"
+#     bus2x2 = "No more in service"
+#     bus2x3 = "No more in service"
+#     time2x1 = "N/A"
+#     time2x2 = "N/A"
+#     time2x3 = "N/A"
 
 ## FLASK RENDER THE WEBPAGE:
 ## main webpage

@@ -8,7 +8,8 @@ Bootstrap(app)
 
 # web: gunicorn -w 4 -b 0.0.0.0:8000 stopApp:app --timeout 500
 
-key = os.environ['wmataKey']
+key = 'e13626d03d8e4c03ac07f95541b3091b'
+# key = os.environ['wmataKey']
 # print(key)
 
 stopID = 1002872 #Stops: 1002872 for 16&Irving, 1002042 for 7-11, 1001183 for Faraguet

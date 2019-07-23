@@ -6,8 +6,6 @@ from flask_bootstrap import Bootstrap
 app = Flask(__name__)
 Bootstrap(app)
 
-# web: gunicorn -w 4 -b 0.0.0.0:8000 stopApp:app --timeout 500
-
 key = os.environ['wmataKey']
 # print(key)
 

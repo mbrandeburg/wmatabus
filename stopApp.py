@@ -6,7 +6,8 @@ from flask_bootstrap import Bootstrap
 app = Flask(__name__)
 Bootstrap(app)
 
-key = os.environ['wmataKey']
+key = 'e13626d03d8e4c03ac07f95541b3091b'
+# key = os.environ['wmataKey']
 # print(key)
 
 stopID = 1002872 #Stops: 1002872 for 16&Irving, 1002042 for 7-11, 1001183 for Faraguet

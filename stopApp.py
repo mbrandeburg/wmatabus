@@ -45,6 +45,7 @@ def busStop(stopNum, intGiven):
         return stopNameList, busNumberList, busDurationList
     except:
         print("Unable to get bus information for this route at this time.")
+        return stopNameList, busNumberList, busDurationList
 # print(busStop(stopID, "1"))
 
 ## call function - takes a string, but 1 is south, 0 is north 

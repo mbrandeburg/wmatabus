@@ -23,25 +23,28 @@ def busStop(stopNum, intGiven):
     stopNameList = []
     busNumberList = []
     busDurationList = []
-    for i in range(0,len(data['Predictions'])):
-        if data['Predictions'][i]['DirectionNum'] == intGiven:
-            stopName = data['StopName']
-            busNumber = data['Predictions'][i]['RouteID']
-            busDuration = data['Predictions'][i]['Minutes']
-            if intGiven == "0": #if northbound, we only care about buses 42 and 43
-                if busNumber == "42":
+    try:
+        for i in range(0,len(data['Predictions'])):
+            if data['Predictions'][i]['DirectionNum'] == intGiven:
+                stopName = data['StopName']
+                busNumber = data['Predictions'][i]['RouteID']
+                busDuration = data['Predictions'][i]['Minutes']
+                if intGiven == "0": #if northbound, we only care about buses 42 and 43
+                    if busNumber == "42":
+                        stopNameList.append(stopName)
+                        busNumberList.append(busNumber)
+                        busDurationList.append(busDuration)
+                    elif busNumber == "43":
+                        stopNameList.append(stopName)
+                        busNumberList.append(busNumber)
+                        busDurationList.append(busDuration)
+                else: #ignoring for south-bound
                     stopNameList.append(stopName)
                     busNumberList.append(busNumber)
                     busDurationList.append(busDuration)
-                elif busNumber == "43":
-                    stopNameList.append(stopName)
-                    busNumberList.append(busNumber)
-                    busDurationList.append(busDuration)
-            else: #ignoring for south-bound
-                stopNameList.append(stopName)
-                busNumberList.append(busNumber)
-                busDurationList.append(busDuration)
-    return stopNameList, busNumberList, busDurationList
+        return stopNameList, busNumberList, busDurationList
+    except:
+        print("Unable to get bus information for this route at this time.")
 # print(busStop(stopID, "1"))
 
 ## call function - takes a string, but 1 is south, 0 is north 

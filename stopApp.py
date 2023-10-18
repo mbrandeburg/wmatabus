@@ -141,6 +141,6 @@ def favicon():
 
 ### INITAITE IT VIA FLASK
 if __name__ == "__main__":
-    app.run() #unsetting for heroku - normally: app.run(host='0.0.0.0', port=8000) 
+    #app.run() #unsetting for heroku - normally: app.run(host='0.0.0.0', port=8000) 
     # gunicorn -w 4 -b 0.0.0.0:8000 stopApp:app --timeout 500
-    
+    app.run(host='0.0.0.0', port=8000)

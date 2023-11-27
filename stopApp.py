@@ -22,6 +22,11 @@ def busStop(stopNum, intGiven):
     if key == "you_didnt_replace_me!":
         print("Please replace the key in the variables.tf file as a default was provided.")
         exit(1)
+    elif key == "":
+        print("Please replace the key in the busapp.yaml file as a default was provided.")
+        exit(1)
+    else:
+        pass
 
     ## work with API data
     r = requests.get(url=URL, params=HEADER)

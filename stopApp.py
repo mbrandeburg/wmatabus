@@ -7,9 +7,11 @@ app = Flask(__name__)
 Bootstrap(app)
 key = os.environ['wmataKey']
 
-## Stops: 1002872 for 16&Irving, 1002042 for 7-11, 1001183 for Faraguet
+## STOPS:
+## 1001212 is Farraguet West exit -> top corner of park by red line entrance (better way home since 2023)
+## 1002872 for 16&Irving, 1002042 for 7-11, 1001183 for McPhearson (former way to get both S2 and the 42/43 until 2023)
 stopID = 1002872 
-stopID2 = 1001183
+stopID2 = 1001212 #1001183
 
 ## Bustop function
 # TODO: can we make stopID automatically populate by time of day?
@@ -17,8 +19,12 @@ def busStop(stopNum, intGiven):
     ## Engage the API
     URL = "https://api.wmata.com/NextBusService.svc/json/jPredictions?StopID={}".format(stopNum)
     HEADER = {'api_key': key} #dictionary with my api auth parameters (it wants my api token)
+    if key == "you_didnt_replace_me!":
+        print("Please replace the key in the variables.tf file as a default was provided.")
+        exit(1)
+
     ## work with API data
-    r = requests.get(url=URL, params= HEADER)
+    r = requests.get(url=URL, params=HEADER)
     data = r.json()
     stopNameList = []
     busNumberList = []
